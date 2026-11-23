@@ -1,0 +1,20 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "ilvora-workforce",
+  "main": "src/worker.js",
+  "compatibility_date": "2026-11-18",
+  "workers_dev": true,
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*", "/modules/*"]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "ilvora-workforce-db",
+      "database_id": "4b4f2f68-6f6c-45a8-a201-fd7ada65c5c9",
+      "migrations_dir": "migrations"
+    }
+  ]
+}

@@ -1,0 +1,168 @@
+{
+  "policy": "default-deny",
+  "roles": {
+    "managing_director": {
+      "label": "Managing Director",
+      "scope": "organisation",
+      "exclusive": [
+        "md.signatory.manage",
+        "md.signature_images.manage",
+        "md.company_seal.manage",
+        "resignation.final_approval",
+        "advance.approve_over_25_percent"
+      ]
+    },
+    "administrator": {
+      "label": "Administrator",
+      "scope": "organisation",
+      "exclusive": [
+        "system.configuration.manage",
+        "payroll.manage",
+        "advance.approve_up_to_25_percent"
+      ],
+      "denied": [
+        "md.signatory.manage",
+        "md.signature_images.manage",
+        "md.company_seal.manage",
+        "resignation.final_approval"
+      ]
+    },
+    "head_office_admin": {
+      "label": "Head Office Admin",
+      "scope": "organisation_hr_governance",
+      "denied": [
+        "md.signatory.manage",
+        "md.signature_images.manage",
+        "md.company_seal.manage",
+        "system.configuration.manage",
+        "resignation.final_approval"
+      ]
+    },
+    "branch_admin": {
+      "label": "Branch Admin / HR",
+      "scope": "assigned_branch_only",
+      "limits": [
+        "leave.approve_up_to_5_days"
+      ],
+      "denied": [
+        "cross_branch.read",
+        "payroll.manage",
+        "md.signatory.manage",
+        "md.signature_images.manage",
+        "md.company_seal.manage",
+        "resignation.final_approval"
+      ]
+    },
+    "employee": {
+      "label": "Employee",
+      "scope": "own_records_only",
+      "denied": [
+        "other_employee.read",
+        "payroll.manage",
+        "hr.manage",
+        "attendance.approve",
+        "leave.approve",
+        "md.signatory.manage",
+        "md.signature_images.manage",
+        "md.company_seal.manage"
+      ]
+    },
+    "attendance_marker": {
+      "label": "Attendance Marker",
+      "scope": "attendance_capture_only",
+      "denied": [
+        "employee_profile.read",
+        "payroll.read",
+        "leave.manage",
+        "roster.manage",
+        "attendance.edit",
+        "attendance.delete",
+        "attendance.approve",
+        "hr.manage"
+      ]
+    }
+  },
+  "module_access": {
+    "employee": [
+      "modules/ilvora-workforce-employee-service1-prototype-v1/",
+      "modules/ilvora-workforce-employee-service2-prototype-v1/",
+      "modules/ilvora-workforce-employee-service3-prototype-v1/",
+      "modules/ilvora-workforce-employee-service4-prototype-v1/",
+      "modules/ilvora-workforce-employee-service5-prototype-v3/",
+      "modules/ilvora-workforce-employee-service6-prototype-v2/",
+      "modules/ilvora-workforce-employee-service7-prototype-v1/",
+      "modules/ilvora-workforce-employee-service8-prototype-v1/",
+      "modules/ilvora-workforce-employee-service9-prototype-v1/",
+      "modules/ilvora-workforce-resignation-workflow-prototype-v2/"
+    ],
+    "branch_admin": [
+      "modules/ilvora-workforce-attendance-correction-prototype-v1/",
+      "modules/ilvora-workforce-branch-admin-service1-prototype-v1/",
+      "modules/ilvora-workforce-branch-admin-service2-onboarding-prototype-v5/",
+      "modules/ilvora-workforce-branch-admin-service3-attendance-prototype-v2/",
+      "modules/ilvora-workforce-branch-admin-service4-leave-management-prototype-v1/",
+      "modules/ilvora-workforce-branch-admin-service5-duty-roster-prototype-v2/",
+      "modules/ilvora-workforce-branch-admin-service6-documents-policies-prototype-v1/",
+      "modules/ilvora-workforce-branch-admin-service7-complaints-grievance-prototype-v1/",
+      "modules/ilvora-workforce-branch-admin-service8-requests-helpdesk-prototype-v1/",
+      "modules/ilvora-workforce-branch-admin-service9-reports-prototype-v1/",
+      "modules/ilvora-workforce-resignation-workflow-prototype-v2/"
+    ],
+    "head_office_admin": [
+      "modules/ilvora-workforce-head-office-service1-dashboard-prototype-v1/",
+      "modules/ilvora-workforce-head-office-service10-branch-management-gps-prototype-v1/",
+      "modules/ilvora-workforce-head-office-service11-branch-admin-authorisation-prototype-v1/",
+      "modules/ilvora-workforce-head-office-service2-employee-approval-id-control-prototype-v1/",
+      "modules/ilvora-workforce-head-office-service3-attendance-governance-prototype-v1/",
+      "modules/ilvora-workforce-head-office-service4-leave-management-prototype-v2/",
+      "modules/ilvora-workforce-head-office-service5-duty-roster-governance-prototype-v1/",
+      "modules/ilvora-workforce-head-office-service6-documents-policies-notices-prototype-v1/",
+      "modules/ilvora-workforce-head-office-service7-complaints-grievance-governance-prototype-v1/",
+      "modules/ilvora-workforce-head-office-service8-requests-helpdesk-governance-prototype-v1/",
+      "modules/ilvora-workforce-head-office-service9-reports-analytics-prototype-v1/",
+      "modules/ilvora-workforce-resignation-workflow-prototype-v2/"
+    ],
+    "administrator": [
+      "modules/ilvora-workforce-administrator-service1-dashboard-prototype-v1/",
+      "modules/ilvora-workforce-administrator-service10-system-settings-security-prototype-v1/",
+      "modules/ilvora-workforce-administrator-service11-system-monitoring-technical-operations-prototype-v1/",
+      "modules/ilvora-workforce-administrator-service12-finance-operational-expense-prototype-v1/",
+      "modules/ilvora-workforce-administrator-service13-procurement-inventory-assets-prototype-v1/",
+      "modules/ilvora-workforce-administrator-service14-contracts-agreements-prototype-v1/",
+      "modules/ilvora-workforce-administrator-service15-licences-statutory-compliance-prototype-v1/",
+      "modules/ilvora-workforce-administrator-service2-salary-management-prototype-v1/",
+      "modules/ilvora-workforce-administrator-service3-payroll-management-prototype-v1/",
+      "modules/ilvora-workforce-administrator-service4-account-access-prototype-v1/",
+      "modules/ilvora-workforce-administrator-service5-payslip-authorisation-prototype-v1/",
+      "modules/ilvora-workforce-administrator-service6-payroll-reports-reconciliation-prototype-v1/",
+      "modules/ilvora-workforce-administrator-service7-advances-loans-prototype-v1/",
+      "modules/ilvora-workforce-administrator-service8-compliance-disciplinary-prototype-v1/",
+      "modules/ilvora-workforce-administrator-service9-hr-compliance-records-audit-prototype-v1/",
+      "modules/ilvora-workforce-resignation-workflow-prototype-v2/"
+    ],
+    "managing_director": [
+      "modules/ilvora-workforce-administrator-service1-dashboard-prototype-v1/",
+      "modules/ilvora-workforce-administrator-service10-system-settings-security-prototype-v1/",
+      "modules/ilvora-workforce-administrator-service11-system-monitoring-technical-operations-prototype-v1/",
+      "modules/ilvora-workforce-administrator-service12-finance-operational-expense-prototype-v1/",
+      "modules/ilvora-workforce-administrator-service13-procurement-inventory-assets-prototype-v1/",
+      "modules/ilvora-workforce-administrator-service14-contracts-agreements-prototype-v1/",
+      "modules/ilvora-workforce-administrator-service15-licences-statutory-compliance-prototype-v1/",
+      "modules/ilvora-workforce-administrator-service2-salary-management-prototype-v1/",
+      "modules/ilvora-workforce-administrator-service3-payroll-management-prototype-v1/",
+      "modules/ilvora-workforce-administrator-service4-account-access-prototype-v1/",
+      "modules/ilvora-workforce-administrator-service5-payslip-authorisation-prototype-v1/",
+      "modules/ilvora-workforce-administrator-service6-payroll-reports-reconciliation-prototype-v1/",
+      "modules/ilvora-workforce-administrator-service7-advances-loans-prototype-v1/",
+      "modules/ilvora-workforce-administrator-service8-compliance-disciplinary-prototype-v1/",
+      "modules/ilvora-workforce-administrator-service9-hr-compliance-records-audit-prototype-v1/",
+      "modules/ilvora-workforce-md-executive-command-centre-prototype-v1/",
+      "modules/ilvora-workforce-resignation-workflow-prototype-v2/",
+      "modules/ilvora-workforce-signatory-payroll-experience-prototype-v2/"
+    ],
+    "attendance_marker": [
+      "modules/ilvora-workforce-attendance-marker-capture-v1/"
+    ]
+  },
+  "note": "Default-deny role access. Attendance Marker receives only its dedicated attendance capture module; all business APIs enforce separate role and branch checks."
+}

@@ -1,0 +1,23 @@
+name: Deploy ILVORA Workforce to Cloudflare
+on:
+  workflow_dispatch:
+    inputs:
+      confirm_deploy:
+        description: 'Type DEPLOY only when you explicitly approve changing the live Cloudflare application'
+        required: true
+        type: string
+jobs:
+  deploy:
+    if: ${{ inputs.confirm_deploy == 'DEPLOY' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install
+      - name: Deploy Worker and static assets (manual approval only)
+        run: npx wrangler deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

@@ -1,0 +1,1 @@
+ILVORA Workforce public assets and module pages. Operational module pages load the shared workspace runtime from /assets/workspace-runtime.js. The original static page interiors are superseded by authenticated, role-checked operational workspaces. Do not use real employee or payroll data until all remaining integrations and acceptance tests are completed.
